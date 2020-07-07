@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RecorderJS from 'recorder-js';
+import Microphone from './Microphone.js';
 
 import { getAudioStream, exportBuffer } from '../utilities/audio';
 
@@ -29,7 +30,7 @@ class Recorder extends Component {
     this.setState({ stream });
   }
 
-  startRecord() {
+  startRecord=()=> {
     const { stream } = this.state;
 
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -53,7 +54,7 @@ class Recorder extends Component {
     const { buffer } = await recorder.stop();
 
     const audio = exportBuffer(buffer[0]);
-   
+
     // Process the audio here.
     console.log(audio);
 
@@ -72,13 +73,17 @@ class Recorder extends Component {
     }
 
     return (
-      <button
+      <div>
+
+  {/*  <button
         onClick={() => {
           recording ? this.stopRecord() : this.startRecord();
         }}
         >
         {recording ? 'Stop Recording' : 'Start Recording'}
-      </button>
+      </button>  */}
+        <Microphone start={()=>this.startRecord()} stop={()=>this.stopRecord()} />
+      </div>
     );
   }
 }
