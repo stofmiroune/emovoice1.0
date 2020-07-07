@@ -1,0 +1,9 @@
+.gray img:hover  {
+
+-webkit-filter: grayscale(0%); /* Chrome, Safari, Opera */
+filter: grayscale(0%); /* Firefox */ }
+
+.gray img{
+
+-webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+filter: grayscale(100%); /* Firefox */ }
